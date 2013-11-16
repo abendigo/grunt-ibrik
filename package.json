@@ -1,0 +1,42 @@
+{
+  "name": "grunt-ibrik",
+  "description": "Code Coverage for CoffeeScript",
+  "version": "0.1.0",
+  "homepage": "https://github.com/marko/grunt-ibrik",
+  "author": {
+    "name": "Mark Oosterveld",
+    "email": "marko@oanda.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/marko/grunt-ibrik.git"
+  },
+  "bugs": {
+    "url": "https://github.com/marko/grunt-ibrik/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/marko/grunt-ibrik/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "Gruntfile.js",
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "~0.6.0",
+    "grunt-contrib-clean": "~0.4.0",
+    "grunt-contrib-nodeunit": "~0.2.0",
+    "grunt": "~0.4.1"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.1"
+  },
+  "keywords": [
+    "gruntplugin"
+  ]
+}
