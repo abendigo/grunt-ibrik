@@ -1,4 +1,5 @@
-
+ibrik = require 'ibrik'
+fs = require 'fs'
 
 module.exports = (grunt) ->
 
@@ -13,9 +14,31 @@ module.exports = (grunt) ->
             separator: ', '
         console.log 'one', options, @files
 
+
+
+        coverageVar = "$$cov_#{Date.now()}$$"
+        instrumenter = new ibrik.Instrumenter
+            coverageVariable: "__foo__"
+            embedSource: false
+            noCompact: true
+
+
+
         # Iterate over all specified file groups.
         @files.forEach (f) ->
-            console.log 'two', f.src
+            console.log 'two', f.src[0], f.dest
+
+            data = fs.readFileSync f.src[0], 'utf8' #, (err, data) ->
+#                console.log 'err', err
+            console.log '########'
+            console.log data
+            console.log '########'
+
+            instrumented = instrumenter.instrumentSync data, f.src[0]
+
+            fs.writeFileSync f.dest, instrumented
+
+            console.log instrumented
         #     # Concat specified files.
             # src = f.src.filter (filepath) ->
             #     console.log 'three', filepath
